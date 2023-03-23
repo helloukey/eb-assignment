@@ -80,7 +80,7 @@ const UserForm = (props: Props) => {
           <div className="w-10 h-10">
             <input
               type="checkbox"
-              className="w-10 h-10"
+              className="w-10 h-10 accent-black"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setAgreement(e.target.checked)
               }

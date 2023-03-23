@@ -51,7 +51,7 @@ function App() {
         ) : null}
         {winner.length ? (
           <motion.div
-          className="px-4 w-full h-full flex justify-center items-center"
+            className="px-4 w-full h-full flex justify-center items-center"
             key="winner"
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
