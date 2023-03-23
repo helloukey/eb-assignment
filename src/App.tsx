@@ -34,10 +34,10 @@ function App() {
           <motion.div
             className="px-4 w-full h-full flex justify-center items-center"
             key="userForm"
-            initial={{ x: -1000, opacity: 0 }}
+            initial={{ x: "-100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            exit={{ x: -1000, opacity: 0 }}
+            exit={{ x: "-100%", opacity: 0 }}
           >
             <UserForm />
           </motion.div>
@@ -47,10 +47,10 @@ function App() {
           <motion.div
             className="w-full h-full flex flex-col justify-center items-center gap-4 px-4"
             key="wheel"
-            initial={{ x: -1000, opacity: 0 }}
+            initial={{ x: "-100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            exit={{ x: -1000, opacity: 0, transition: { delay: 1 } }}
+            exit={{ x: "-100%", opacity: 0, transition: { delay: 1 } }}
           >
             <Wheel spinningSound={spinningSound} successSound={successSound} />
           </motion.div>
