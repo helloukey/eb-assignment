@@ -2,6 +2,7 @@ import { useState } from "react";
 import useGlobalContext from "../hooks/useGlobalContext";
 import Input from "./Input";
 
+// assets
 import email from "../assets/icons/email.svg";
 import phone from "../assets/icons/phone.svg";
 import cancel from "../assets/cancel.svg";
@@ -15,11 +16,13 @@ const UserForm = (props: Props) => {
   const { dispatch } = useGlobalContext({});
 
   // regex
-  const phonePattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+  const phonePattern =
+    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
   const emailPattern = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    // Alert if error or dispatch action
     if (!emailText || !phoneText) {
       alert("Please fill the fields.");
     } else if (!agreement) {
@@ -94,7 +97,7 @@ const UserForm = (props: Props) => {
         {/* Button */}
         <button
           type="submit"
-          className="bg-[#146531] hover:saturate-150 p-5 rounded-full text-white font-bold text-2xl"
+          className="bg-button hover:saturate-150 p-5 rounded-full text-white font-bold text-2xl"
         >
           Try your luck
         </button>

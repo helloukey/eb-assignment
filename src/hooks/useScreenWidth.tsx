@@ -9,6 +9,7 @@ const useScreenWidth = (): Screen => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
 
+  // Update state on screen resize
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         eb: "#CADB7F",
+        button: "#146531"
       },
     },
     screens: {

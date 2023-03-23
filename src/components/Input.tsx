@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// Input type
 type Props = {
   label: string;
   name: string;

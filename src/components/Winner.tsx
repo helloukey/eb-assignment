@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import wheel from "../assets/wheel.svg";
 import useGlobalContext from "../hooks/useGlobalContext";
 import Confetti from "react-confetti";
 import useScreenWidth from "../hooks/useScreenWidth";
+
+// assets
+import wheel from "../assets/wheel.svg";
 
 type Props = {
   message: string;
@@ -14,15 +16,18 @@ const Winner = ({ message, coupon }: Props) => {
   const { dispatch } = useGlobalContext({});
   const { screenWidth, screenHeight } = useScreenWidth();
 
+  // handle copy
   const handleCopy = () => {
     navigator.clipboard.writeText(coupon);
     setCopied(true);
   };
+  // handle close
   const handleClose = () => {
     navigator.clipboard.writeText(coupon);
     dispatch({ type: "SET_WINNER", payload: "" });
   };
 
+  // End confetti after 6 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setConfetti(false);
@@ -33,6 +38,7 @@ const Winner = ({ message, coupon }: Props) => {
 
   return (
     <>
+      {/* Confetti */}
       {confetti ? (
         <Confetti
           width={screenWidth}
@@ -55,7 +61,7 @@ const Winner = ({ message, coupon }: Props) => {
             {coupon}
           </span>
           <button
-            className="p-5 font-bold text-white text-xl xs:text-3xl bg-[#146531] hover:saturate-150 rounded-r-2xl"
+            className="p-5 font-bold text-white text-xl xs:text-3xl bg-button hover:saturate-150 rounded-r-2xl"
             onClick={handleCopy}
           >
             {copied ? "COPIED!" : "COPY"}
@@ -64,7 +70,7 @@ const Winner = ({ message, coupon }: Props) => {
         {/* Button */}
         <button
           type="submit"
-          className="w-fit mx-auto bg-[#146531] hover:saturate-150 py-5 px-12 rounded-full text-white font-bold text-xl xs:text-2xl"
+          className="w-fit mx-auto bg-button hover:saturate-150 py-5 px-12 rounded-full text-white font-bold text-xl xs:text-2xl"
           onClick={handleClose}
         >
           Close Panel & Copy

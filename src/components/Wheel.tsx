@@ -5,11 +5,11 @@ import indicator from "../assets/indicator.svg";
 import useGlobalContext from "../hooks/useGlobalContext";
 
 type Props = {
-    spinningSound: HTMLAudioElement;
-    successSound: HTMLAudioElement
+  spinningSound: HTMLAudioElement;
+  successSound: HTMLAudioElement;
 };
 
-const Wheel = ({spinningSound, successSound}: Props) => {
+const Wheel = ({ spinningSound, successSound }: Props) => {
   const [spinDeg, setSpinDeg] = useState<number>(0);
   const [spinning, setSpinning] = useState<boolean>(false);
   const [randomString, setRandomString] = useState<string>("");
@@ -43,7 +43,7 @@ const Wheel = ({spinningSound, successSound}: Props) => {
     spinningSound.pause();
     successSound.play();
     setSpinning(false);
-    
+
     const zones: { [key: number]: string } = {
       1: "30% SiteWide Off",
       2: "Hot Chocolate Free with Tea",
@@ -87,7 +87,9 @@ const Wheel = ({spinningSound, successSound}: Props) => {
       </div>
       {/* Button */}
       <button
-        className={`bg-[#146531] hover:saturate-150 py-5 px-12 lg:px-16 rounded-full text-white font-bold text-2xl ${spinning ? "pointer-events-none" : ""}`}
+        className={`bg-button hover:saturate-150 py-5 px-12 lg:px-16 rounded-full text-white font-bold text-2xl ${
+          spinning ? "pointer-events-none" : ""
+        }`}
         onClick={handleSpin}
         disabled={spinning}
       >
