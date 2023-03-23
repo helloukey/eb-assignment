@@ -6,7 +6,7 @@ import Input from "./Input";
 import email from "../assets/icons/email.svg";
 import phone from "../assets/icons/phone.svg";
 import cancel from "../assets/cancel.svg";
-import wheel from "../assets/wheel.svg";
+import wheel from "../assets/wheel.png";
 
 type Props = {};
 const UserForm = (props: Props) => {

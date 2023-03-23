@@ -4,7 +4,7 @@ import Confetti from "react-confetti";
 import useScreenWidth from "../hooks/useScreenWidth";
 
 // assets
-import wheel from "../assets/wheel.svg";
+import wheel from "../assets/wheel.png";
 
 type Props = {
   message: string;
