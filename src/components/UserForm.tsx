@@ -16,8 +16,7 @@ const UserForm = (props: Props) => {
   const { dispatch } = useGlobalContext({});
 
   // regex
-  const phonePattern =
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+  const phonePattern = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
   const emailPattern = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
 
   const handleSubmit = (e: React.SyntheticEvent) => {
