@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// assets
 import spinWheel from "../assets/spin-wheel.svg";
 import indicator from "../assets/indicator.svg";
 import useGlobalContext from "../hooks/useGlobalContext";
@@ -15,6 +16,7 @@ const Wheel = ({ spinningSound, successSound }: Props) => {
   const [randomString, setRandomString] = useState<string>("");
   const { dispatch } = useGlobalContext({});
 
+  // Generating Random 8 digit coupon code
   function generateRandomString() {
     let result = "";
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -31,6 +33,7 @@ const Wheel = ({ spinningSound, successSound }: Props) => {
     setRandomString(result);
   }
 
+  // handle spin
   const handleSpin = () => {
     setSpinning(true);
     spinningSound.play();
@@ -39,11 +42,13 @@ const Wheel = ({ spinningSound, successSound }: Props) => {
     setSpinDeg(randomDeg);
   };
 
+  // handle transition end
   const handleTransitionEnd = () => {
     spinningSound.pause();
     successSound.play();
     setSpinning(false);
 
+    // zones
     const zones: { [key: number]: string } = {
       1: "30% SiteWide Off",
       2: "Hot Chocolate Free with Tea",
@@ -53,9 +58,13 @@ const Wheel = ({ spinningSound, successSound }: Props) => {
       6: "Buy 1 Get 1 Free",
     };
 
+    // part for 6 offers i.e 360/6
     const size = 60;
+    // actual degree under 360
     const actualDeg = spinDeg % 360;
+    // winner selection based on zone
     const winner = Math.ceil((actualDeg + 30) / size);
+    // show first zone if winner equals 7 else according to zone
     if (winner === 7) {
       const result = zones[1];
       dispatch({ type: "SET_WINNER", payload: result });
